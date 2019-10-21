@@ -1,0 +1,24 @@
+{
+  "name": "project_pomodoro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "dependencies": {
+    "easytimer.js": "^4.0.1",
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbcoudert/pomodoro.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jbcoudert/pomodoro/issues"
+  },
+  "homepage": "https://github.com/jbcoudert/pomodoro#readme"
+}
