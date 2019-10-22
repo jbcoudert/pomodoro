@@ -5,73 +5,71 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="style.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.">
-
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
     <title>Hello, world!</title>
 </head>
 
 <body>
     <div id="container">
         <div class="row">
-            <div class="col-12">
-                <div class="row">
+            <div class="col-12 ">
+                <div class="row firstPart">
                     <div class="col-9">
-                        <input type="text" placeholder="Nouvelle tâche" id="newTask">
+                        <input type="text" class=" w-100" placeholder="Nouvelle tâche" id="newTask">
                     </div>
                     <div class="col-3">
-                        <button id="addTask">Ajouter</button>
+                        <button id="addTask" class=" w-100">Ajouter</button>
                     </div>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 secondPart">
                 <div class="row">
+                    
                     <table class="table table-borderless">
+
                         <thead>
                             <tr id="tr-1">
                                 <th scope="col"></th>
-                                <th scope="col">A faire</th>
-                                <th scope="col">En cours</th>
-                                <th scope="col">Fait</th>
+                                <ul id="firstCol">
+                                    <li>
+                                        <h1>A faire</h1>
+                                    </li>
+                                </ul>
                             </tr>
                         </thead>
                         <tbody>
                             <tr id="tr-2">
                                 <th scope="row"></th>
-                                <td>
-                                    <div> Task 1 <i class="fa fa-trash" ></i>
-                                    </div>
-                                    
-                                </td>
-                                <td>
-                                    <div id="countdownExample">
-                                        <div class="values"></div>
-                                    </div>
-                                </td>
-                                <td></td>
+                                <ul id="middleCol">
+                                    <li>
+                                        <h1>En cours</h1>
+                                    </li>
+                                    <li>
+                                        <div id="countdownExample">
+                                            <div class="values"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <button id="start">Début</button>
+                                    </li>
+                                    <li>
+                                        <button id="pause">Pause</button>
+                                    </li>
+                                </ul>
                             </tr>
                             <tr>
                                 <th scope="row"></th>
-                                <td>
-                                    <div class="calendar-minus-o"> Task 2 <i class="fa fa-trash" ></i>
-                                    </div>
-                                    
-                                </td>
-                                <td><button id="start">Début</button></td>
-                                <td></td>
-                            </tr>
-                            <tr id="tr-3">
-                                <th scope="row"></th>
-                                <td>
-                                    <div class="task3"> Task 3 <i class="fa fa-trash" ></i>
-                                    </div>
-                                </td>
-                                <td><button id="pause">Pause</button></td>
-                                <td></td>
+                                <ul id="lastCol">
+                                    <li><h1>Fait</h1></li>
+                                    <li>
+                                        
+                                    </li>
+                                </ul>
                             </tr>
                         </tbody>
                     </table>
@@ -95,7 +93,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-        <script src="node_modules/easytimer.js/dist/easytimer.min.js"></script>
+    <script src="node_modules/easytimer.js/dist/easytimer.min.js"></script>
 </body>
 
 </html>
