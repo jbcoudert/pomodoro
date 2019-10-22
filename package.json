@@ -5,7 +5,9 @@
   "main": "script.js",
   "dependencies": {
     "easytimer.js": "^4.0.1",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "jquery-sortable": "^0.9.13",
+    "sortablejs": "^1.10.1"
   },
   "devDependencies": {},
   "scripts": {

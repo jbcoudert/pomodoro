@@ -7,17 +7,21 @@ ul {
     margin: auto;
     border: 2px solid black;
 }
+
 #lastCol, #middleCol, #firstCol {
     margin: 10px 17.6719px;
 }
+
  li {
-    padding:0 0 2rem 0;
+    padding:0 3rem 2rem 0;
 }
+
 .firstPart {
     display: flex;
     width: 80%;
     margin: auto;
 }
+
 i {
-    padding: 0 0 0 3rem;
+    margin: 0 0 0 3rem;
 }

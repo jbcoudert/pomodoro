@@ -1,14 +1,22 @@
 $(document).ready(function () {
     var timerInstance = new easytimer.Timer();
     var timer = timerInstance;
-    timer.start({ countdown: true, startValues: { seconds: 10 } });
+    timer.start({ countdown: true, startValues: { seconds: 2 } });
     $('#countdownExample .values').html(timer.getTimeValues().toString());
     $('#start').click(function () {
-        timer.start({ countdown: true, startValues: { seconds: 10 } });
+        timer.start({ countdown: true, startValues: { seconds: 2 } });
         $('#countdownExample .values').html(timer.getTimeValues().toString());
         timer.addEventListener('secondsUpdated', function (e) {
             $('#countdownExample .values').html(timer.getTimeValues().toString());
+
         });
+        
+        var transfert = $("<li>")
+        transfert = $("#firstCol li:nth-child(2)")
+        $("#middleCol").append(transfert)
+        // $("#firstCol li:nth-child(2)").hide()
+
+        $("#middleCol").append($(transfert))
         
     })
 
@@ -18,8 +26,14 @@ $(document).ready(function () {
 
     timer.addEventListener('targetAchieved', function (e) {
         $('#countdownExample .values').html('KABOOM!!');
+        var transfert = $("<li>")
+        transfert = $("#middleCol li:nth-child(5)")
+        $("#lastCol").append(transfert)
+        
     });
+
     cpt = 0
+    
     $("#addTask").click(function () {
         cpt ++
         var newLi = $("<li>", {
@@ -45,8 +59,10 @@ $(document).ready(function () {
     });
 
 
-    $( function() {
-        $( "#firstCol" ).sortable();
-        $( "#firstCol" ).disableSelection();
-      } );
+    $(function(){
+        $("#firstCol").sortable();
+    })
+
+    
+
 })
