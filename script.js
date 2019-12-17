@@ -63,6 +63,25 @@ $(document).ready(function () {
         $("#firstCol").sortable();
     })
 
+    $("#addTask").click(function(){
+
+        $.post(
+            'createTask.php' , 
+            {
+                nameTask : $("#newTask").val()
+            },
+
+            newTask_return,
+            'varchar'
+            );
+            
+    function newTask_return(text) {
+        console.log(text);
+        
+    }
+
+    });
+
     
 
 })
