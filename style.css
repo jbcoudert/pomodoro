@@ -6,8 +6,11 @@ ul {
     width: 29%;
     margin: auto;
     border: 2px solid black;
+    
 }
-
+/* input, ul {
+    background-color: rgba(0, 0, 0, 0.11);
+} */
 #lastCol, #middleCol, #firstCol {
     margin: 10px 17.6719px;
 }

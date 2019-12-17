@@ -33,7 +33,20 @@ $(document).ready(function () {
     });
 
     cpt = 0
+
+    var postData = {'title': $("#newTask").val()}
     
+    $.get('listTask.php', postData, function (list) {
+        var newLi = $("<li>", {
+            id : "li" + cpt
+        })
+        console.log(list);
+        $.each(list, function(i, list) {
+            $("#firstCol").append(newLi)
+            $(newLi).append(list)
+        })
+    })
+
     $("#addTask").click(function () {
         cpt ++
         var newLi = $("<li>", {
@@ -45,9 +58,13 @@ $(document).ready(function () {
         })
 
 
-        $("#firstCol").append(newLi)
-        $(newLi).append($("#newTask").val())
+        // $("#firstCol").append(newLi)
+        // $(newLi).append($("#newTask").val())
+        $.post('createTask.php',postData, function(resp) {
+            console.log(resp);  
+        });
         $(newIcon).appendTo($(newLi))
+            
 
         $(newIcon).click(function () {
             $(this).parent().remove();
@@ -58,30 +75,8 @@ $(document).ready(function () {
         $(this).parent().remove();
     });
 
-
-    $(function(){
-        $("#firstCol").sortable();
-    })
-
-    $("#addTask").click(function(){
-
-        $.post(
-            'createTask.php' , 
-            {
-                nameTask : $("#newTask").val()
-            },
-
-            newTask_return,
-            'varchar'
-            );
-            
-    function newTask_return(text) {
-        console.log(text);
-        
-    }
-
-    });
-
-    
+    // $(function(){
+    //     $("#firstCol").sortable();
+    // })
 
 })

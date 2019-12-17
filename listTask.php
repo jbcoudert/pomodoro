@@ -9,6 +9,12 @@
 
 $db = new PDO('mysql:host=localhost;dbname=pomodoro', "root", "plop");
 
-$createTask = $db->query("INSERT INTO taches (temps, status, name) VALUES (NOW(), 'A faire' , '".$_POST['title']."')");
+$taskTitle = $db->query("SELECT name FROM taches");
+foreach ($taskTitle as $row) {
+    $titleArray[] = $row['name']; 
+}
+header('Content-Type: application/json');
+echo json_encode($titleArray);
+
 
 ?>
