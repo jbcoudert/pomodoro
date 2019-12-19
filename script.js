@@ -14,7 +14,7 @@ $(document).ready(function () {
         var transfert = $("<li>")
         transfert = $("#firstCol li:nth-child(2)")
         $("#middleCol").append(transfert)
-        // $("#firstCol li:nth-child(2)").hide()
+        // $("#firstCol li:nth-child(2)").hide() ggg
 
         $("#middleCol").append($(transfert))
         
