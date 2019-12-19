@@ -13,6 +13,10 @@ $taskTitle = $db->query("SELECT name FROM taches");
 foreach ($taskTitle as $row) {
     $titleArray[] = $row['name']; 
 }
+$deleteTask = $db->query("SELECT id FROM taches");
+foreach ($deleteTask as $row) {
+    $delete[] = $row["id"];
+}
 header('Content-Type: application/json');
 echo json_encode($titleArray);
 
