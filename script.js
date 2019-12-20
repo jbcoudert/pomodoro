@@ -41,7 +41,7 @@ $(document).ready(function () {
         $.each(list, function (i, list) {
             var newIcon = $("<i>", {
                 class: "fa fa-trash",
-                id: "delete"
+                id: list["id"]
             })
             var newLi = $("<li>", {
                 id: "li" + cpt
@@ -53,15 +53,11 @@ $(document).ready(function () {
             })
             $(newIcon).click(function () {
                 var delIcons = $(this).attr("id");
-                var id = delIcons.replace("delete" , "");
-                var delId = "#delete" + id;
-                var del = $(delId);
-                var tassData = {
-                    "id" : id ,
+                var idData = {
+                    "id" : delIcons 
                 }
-                $.post("deleteTask.php" , tassData , function(oDD) {
-                    console.log(oDD);
-                    console.log(newIcon);
+                $.post("deleteTask.php" , idData , function(del) {
+
                     
                 })
 
@@ -69,7 +65,7 @@ $(document).ready(function () {
             });
 
             $("#firstCol").append(newLi)
-            $(newLi).append(list)
+            $(newLi).append(list["name"])
             $(newIcon).appendTo($(newLi))
         })
     })
