@@ -13,10 +13,8 @@ $(document).ready(function () {
 
         var transfert = $("<li>")
         transfert = $("#firstCol li:nth-child(2)")
+        // $.get('updateTask.php', )
         $("#middleCol").append(transfert)
-        // $("#firstCol li:nth-child(2)").hide()
-
-        $("#middleCol").append($(transfert))
 
     })
 
@@ -32,63 +30,31 @@ $(document).ready(function () {
 
     });
 
-    cpt = 0
-    var postData1 = { 'title': $("#newTask").val() }
-    // console.log(postData);
+// CREATE TASK 
 
-    $.get('listTask.php', postData1, function (list) {
-        // console.log(list);
-        $.each(list, function (i, list) {
-            var newIcon = $("<i>", {
-                class: "fa fa-trash",
-                id: list["id"]
-            })
-            var newLi = $("<li>", {
-                id: "li" + cpt
-            })
-            $.get('deleteTask.php', newIcon, function (del) {
-                $.each(del, function (j, del) {
+    cpt=0
 
-                })
-            })
-            $(newIcon).click(function () {
-                var delIcons = $(this).attr("id");
-                var idData = {
-                    "id" : delIcons 
-                }
-                $.post("deleteTask.php" , idData , function(del) {
-// kk
-                    
-                })
-
-                $(this).parent().remove();
-            });
-
-            $("#firstCol").append(newLi)
-            $(newLi).append(list["name"])
-            $(newIcon).appendTo($(newLi))
-        })
-    })
-
+    
+    
     $("#addTask").click(function () {
-        cpt++
         var newLi = $("<li>", {
-            id: "li" + cpt
+            
         })
-
+    
         var newIcon = $("<i>", {
             class: "fa fa-trash",
-            id: $("[id=taches_id]")
         })
-
-
-        $("#firstCol").append(newLi)
-        $(newLi).append($("#newTask").val())
+         
+        $("#firstCol").append(newLi)   
+        newLi.append($("#newTask").val())
         var postData = { 'title': $("#newTask").val() }
-        $.post('createTask.php', postData, function (resp) {
-            console.log(resp);
+
+        $.post('createTask.php', postData, function (data) {
+            console.log(postData);
+            newIcon.attr("id", data[0])
+
         });
-        $(newIcon).appendTo($(newLi))
+        newIcon.appendTo(newLi)
 
 
         $(newIcon).click(function () {
@@ -96,12 +62,35 @@ $(document).ready(function () {
         });
     })
 
-    // $(".fa-trash").click(function () {
-    //     $(this).parent().remove();
-    // });
+// LIST TASK
 
-    // $(function(){
+    var getData1 = { 'title': $("#newTask").val() }
+
+    $.get('listTask.php', getData1, function (listTask) {
+    //     // console.log(list);
+        $.each(listTask, function (i, listTask) {
+            var newIcon = $("<i>", {
+                class: "fa fa-trash",
+                id: listTask["id"]
+            })
+            var newLi = $("<li>", {
+                id: listTask["id"]
+            })
+            $("#firstCol").append(newLi)
+            $(newLi).append(listTask["name"])
+            $(newIcon).appendTo($(newLi))
+            $(newIcon).click(function () {
+                var delIcons = $(this).attr("id");
+                var idData = {"id" : delIcons}
+                var liToDelete = $(this).parent();
+                $.post("deleteTask.php" , idData , function(del) {
+                    liToDelete.remove();
+                })
+                // $(this).parent().remove()
+            });
+        })
+    })
+
     //     $("#firstCol").sortable();
-    // })
 
 })

@@ -8,7 +8,13 @@
 <?php 
 
 $db = new PDO('mysql:host=localhost;dbname=pomodoro', "root", "plop");
-
 $createTask = $db->query("INSERT INTO taches (temps, status, name) VALUES (NOW(), 'A faire' , '".$_POST['title']."')");
-var_dump($createTask)
+if (isset($_POST['title'])) {
+
+    $id = $db->query("SELECT LAST_INSERT_ID() FROM taches")->fetch();
+
+    header('Content-Type: application/json');
+    echo json_encode($id);
+}
+// var_dump($createTask);
 ?>
