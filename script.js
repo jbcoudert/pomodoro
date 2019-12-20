@@ -57,7 +57,7 @@ $(document).ready(function () {
                     "id" : delIcons 
                 }
                 $.post("deleteTask.php" , idData , function(del) {
-
+// kk
                     
                 })
 
